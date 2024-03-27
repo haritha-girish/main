@@ -1,0 +1,373 @@
+TYPESCRIPT 
+
+
+DAY 1 
+
+-> FUNDAMENTALS OF TYPESCRIPT 
+-> VARIABLES 
+-> DATA TYPES 
+-> GENERICS
+-> TYPE ALIASES 
+-> FUNCTIONS 
+-> INTERFACE 
+-> CLASSES 
+
+
+...........................................
+
+
+DAY 2 
+
+-> OOP 
+-> CLASSES/OBJECTS 
+-> INHERITANCE 
+-> OVERRIDDING 
+-> TYPES OF CLASSES 
+-> ACCESS MODIFIERS 
+-> TYPE ASSERTIONS 
+-> TYPE CASTING 
+-> DECORATORS 
+-> TYPES OF DECORATORS
+-> NAMESPACES 
+-> HANDLE ASYNCHRONOUS CODE 
+
+
+......................................................................
+...............................................................
+url ==========> request =========> server (server side)
+client side/ front end 	(HTML,CSS,JS)<===========response
+
+FUNDAMENTALS OF TYPESCRIPT 
+
+-> TYPE (DATA TYPE)+ SCRIPT 
+-> strong type checking abilities -> static type 
+	name = 'Shipra'
+	name = 12345; //error 
+-> open source programming language 
+-> developed & maintained by Microsoft 
+-> features -> interfaces,enums classes, modules 
+-> superset of JavaScript => JavaScript(ES6)features + additional features => TypeScript
+-> understood by very limited browsers 
+-> extension -> .ts 
+
+.............................................................................
+
+TRANSPILING 
+
+ts ---> js 
+
+transpiler -> tsc -> TypeScript Compiler 
+
+............................................................
+
+INSTALLATIONS 
+
+VSCODE 
+NODE JS - NPM >> adding additional features (choc)-don't >> admin rights>> mytechhelp-> technical help  
+
+.............................................................
+
+TYPESCRIPT 
+
+npm install -g typescript
+
+..............................
+
+TypeScript file -> 1fundamentalsOfTS.ts
+
+
+1) ts -> js => tsc name.ts --watch (left)
+2) compile js => node --watch name.js (right)
+
+....................................................
+
+VARIABLES 
+
+-> containers to store data .
+
+variable_name / identifier = value;
+
+name = 'John';
+Name = 'John';
+
+-> IMPLICIT DECLARATION   
+        -> no keywords(var,let,const) , not specifying the data type 
+        var_name = value;
+        name = 'John';
+
+-> EXPLICIT DECLARATION
+        - with keywords (var,let,const) , specifying the data type 
+        var name : string = 'John'
+
+....................................
+DATA TYPES IN TYPESCRIPT 
+
+BUILT IN 
+    -string
+    -number
+    -boolean 
+    -null
+    -undefined 
+    -void
+SPECIAL DATA TYPES 
+    -any 
+    -union
+    -never
+    -unknown
+USER DEFINED 
+    -array 
+    -tuples
+    -enum 
+    -Object
+    -interface 
+    -functions 
+    -classes 
+
+    .........................................................................
+
+
+
+let a = '12345'
+
+function infiniteLoop():never{
+    while(true){
+        //infinitely
+    }
+}
+
+.......................................
+
+function
+
+-> statementa that perform that task 
+-> reusable 
+
+-> define the function 
+
+function name(parameter:datatype):return type of the function {
+    code //
+}
+
+
+-> call the function
+
+name(arguments )
+
+
+//DIFFERENT TYPES OF FUNCTION 
+-> Function Expression 
+
+var hello = function():void{
+    console.log('Hello')
+}
+
+hello();
+-> Immediately Invoked Function Expression
+
+(function():void{
+    console.log('Hello')
+})();
+
+-> Arrow Functions 
+var result = function(a:number,b:number):number{
+        return a-b;
+}
+
+let result = (a:number,b:number):number => console.log(a-b);
+
+-> Hoisting 
+-> this keyword 
+
+
+function xyz(){
+    return this ==> global object
+}
+
+
+//GENERIC FUNCTIONS 
+
+if(x==1){
+    return 1
+}else{ return NaN}
+
+x==1? 1 : NaN //terinary operator 
+
+......................
+
+Type Alias
+
+
+...............................................................
+
+OBJECT ORIENTED PROGRAMMING 
+
+-> code more modular & reusable 
+-> easy to debug 
+-> medium to large or complex projects 
+-> maintain, scalable 
+-> structured 
+
+CLASS   OBJECT
+
+CLASS 
+-> template / blueprint to create objects 
+
+
+person -> name,age , address 
+
+PROPERTIES ~ VARIABLES
+METHODS ~ FUNCTIONS -> Name(parameter){code}
+
+
+person A -> Tom , 10 , Delhi 
+person B -> Jerry , 8 , Delhi 
+
+class name {
+    properties 
+    constructor(parameter) 
+    method 
+}
+
+let obj = new name(argument); // constructor method is invoked automatically
+
+............................
+
+INHERITANCE 
+
+person -> name,age , address -> Base Class , superclass 
+
+female -> inherit the properties of class person -> Derived Class , subclass
+
+"extends" -> keyword 
+
+class female extends person {
+
+}
+
+
+class subclassname extends superclassname{
+
+}
+
+
+FATHER -> house 
+
+SON -> house 
+
+.................................
+
+INTERFACE - CLASSES 
+
+..............................................................
+
+ABSTRACT CLASS
+-> blueprint for other classes to inherit from 
+-> cannot be instantiated 
+-> they are meant to be extended by other classes 
+
+abstract class name{
+    abstract methodname():datatype{
+
+    }
+}
+
+
+School 
+-> name , age , section => abstract class => commonData
+class 1 extends commonData
+class 2 extends commonData 
+class 3 extends commonData
+
+
+...................................................
+
+
+interface -> data type 
+
+class can contain the values 
+
+...........................
+
+ACCESS MODIFIERS 
+
+-> increases the security of class members(properties/methods )
+-> control the visibilty of class members 
+-> Types of Access Modifiers :
+        -PUBLIC 
+        -PROTECTED 
+        -PRIVATE 
+
+
+............................................................................
+
+TYPE ASSERTIONS AND TYPE CASTING 
+
+
+TYPE ASSERTIONS(AC) -> tells the typescript compiler about the type of value 
+-> effect the runtime behaviour of the code 
+
+TYPE CASTING (CR)-> converting a value from one data type to another at runtime 
+
+
+COMPILE TIME 
+
+(Convert from source code -> machine language / bytecode)
+CHEF -> recipe 
+-> reads the recipe 
+-check the ingredients 
+-kitchen tool 
+-planning / preparation phase 
+
+
+RUN TIME 
+-> program will get executed
+
+execute step by step 
+exceptions 
+
+
+............................................
+
+NAMESPACES
+
+Math , Window , Array.isArray(), Date()
+
+-> helps us to provide a way to organize code into logical groups 
+-> no naming conflicts 
+
+namespace namespacename {
+    //variables , classes , fumctions , namespace 
+}
+
+................................................
+
+Handle ASYNCHRONOUS operations 
+
+-> Promises 
+-> async/await 
+-> Callback 
+
+Promises 
+-> resolve
+-> reject 
+
+tsconfig.json 
+
+//callback -> passing a function as an argument to another function 
+function data(callback : (a:string | null , error : Error|null)=>void){
+    setTimeout(()=>{
+        callback('Data 1',null);
+    },2000)
+};
+
+data((a,error)=>{
+    if(error){
+        console.error('Error Occured');
+    }
+    else{
+        console.log(a);
+    }
+})
+
+
+
