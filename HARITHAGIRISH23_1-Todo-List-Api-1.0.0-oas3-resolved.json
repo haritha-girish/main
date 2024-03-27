@@ -1,0 +1,133 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "TODO List API",
+    "description": "API for managing todo list.",
+    "contact": {
+      "name": "Haritha Girish",
+      "email": "harithagirish23@gmail.com"
+    },
+    "license": {
+      "name": "Apache '2.0'",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0-oas3"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/todos": {
+      "get": {
+        "summary": "Retrieves all todo list items.",
+        "description": "This operation retrieves all the todo list items present in JSON.",
+        "operationId": "getTodoList Item",
+        "responses": {
+          "200": {
+            "description": "A list of todo list",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "A new todo list item is added",
+        "requestBody": {
+          "description": "Update the todo List",
+          "content": {
+            "application:json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoListPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated the todo lists in JSON",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListPostRp"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error. Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TodoList": {
+        "type": "object",
+        "properties": {
+          "todos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TodoList_todos"
+            }
+          }
+        }
+      },
+      "TodoListPost": {
+        "type": "object",
+        "properties": {
+          "todo": {
+            "type": "string",
+            "example": "Use Swagger in the project"
+          },
+          "completed": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "TodoListPostRp": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "example": 1
+          },
+          "todo": {
+            "type": "string",
+            "example": "Use Swagger in the project"
+          },
+          "completed": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "TodoList_todos": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "example": 1
+          },
+          "todo": {
+            "type": "string",
+            "example": "Completed REST API Training"
+          },
+          "completed": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      }
+    }
+  }
+}
